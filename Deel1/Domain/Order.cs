@@ -45,7 +45,7 @@ namespace Deel1.Domain
             if (weekend && IsStudentOrder)
             {
                 int Count = 0;
-                while(OrderNr % 2 == 0 && OrderNr != 0)
+                while (OrderNr % 2 == 0 && OrderNr != 0)
                 {
                     Count++;
                     OrderNr = OrderNr - 2;
@@ -54,16 +54,15 @@ namespace Deel1.Domain
             }
             if (weekend && !IsStudentOrder && OrderNr >= 6)
                 return (OrderNr) * (Ticket.GetPrice() + premiumExtra) * 0.9;
-            return(OrderNr) * (Ticket.GetPrice() + premiumExtra);
+            return (OrderNr) * (Ticket.GetPrice() + premiumExtra);
         }
 
         public void Export(TicketExportFormat exportFormat)
         {
-            DirectoryInfo di = new DirectoryInfo("../../../");
-
+            DirectoryInfo di = new DirectoryInfo("./Deel1/");
             string pathString = di.FullName + "Orders";
 
-            string fileName = this.OrderNr.ToString()+ ".txt";
+            string fileName = this.OrderNr.ToString() + ".txt";
             pathString = System.IO.Path.Combine(pathString, fileName);
 
             // Verify the path that you have constructed.
@@ -71,16 +70,17 @@ namespace Deel1.Domain
             //Get the 
             string[] exportData =
             {
-               "Ordernummer: "+ this.OrderNr.ToString(),"Prijs: €"+ calculatePrice().ToString(), "Film Ticket: "+ MovieTicket.ToString
+               "Ordernummer: "+ this.OrderNr.ToString(),"Prijs: €"+ CalculatePrice().ToString()
             };
+            byte[] bytes = Encoding.UTF8.GetBytes(exportData);
             if (!System.IO.File.Exists(pathString))
             {
                 using (System.IO.FileStream fs = System.IO.File.Create(pathString))
                 {
 
-                    for (byte i = 0; i < 100; i++)
+                    for (int i = 0; i < bytes.Length; i++)
                     {
-                        fs.WriteByte(i);
+                        fs.Write(bytes[i]);
                     }
                 }
             }
