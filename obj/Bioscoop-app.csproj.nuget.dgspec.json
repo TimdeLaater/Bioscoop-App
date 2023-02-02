@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tdela\\OneDrive\\Documenten\\Avans\\Jaar3\\SOA3\\Bioscoop-app\\Bioscoop-app.csproj": {}
+    "C:\\Users\\noahd\\source\\SOFA3\\Bioscoop-App\\Bioscoop-app.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tdela\\OneDrive\\Documenten\\Avans\\Jaar3\\SOA3\\Bioscoop-app\\Bioscoop-app.csproj": {
+    "C:\\Users\\noahd\\source\\SOFA3\\Bioscoop-App\\Bioscoop-app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tdela\\OneDrive\\Documenten\\Avans\\Jaar3\\SOA3\\Bioscoop-app\\Bioscoop-app.csproj",
+        "projectUniqueName": "C:\\Users\\noahd\\source\\SOFA3\\Bioscoop-App\\Bioscoop-app.csproj",
         "projectName": "Bioscoop-app",
-        "projectPath": "C:\\Users\\tdela\\OneDrive\\Documenten\\Avans\\Jaar3\\SOA3\\Bioscoop-app\\Bioscoop-app.csproj",
-        "packagesPath": "C:\\Users\\tdela\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tdela\\OneDrive\\Documenten\\Avans\\Jaar3\\SOA3\\Bioscoop-app\\obj\\",
+        "projectPath": "C:\\Users\\noahd\\source\\SOFA3\\Bioscoop-App\\Bioscoop-app.csproj",
+        "packagesPath": "C:\\Users\\noahd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\noahd\\source\\SOFA3\\Bioscoop-App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tdela\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\noahd\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

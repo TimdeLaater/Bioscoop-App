@@ -7,7 +7,8 @@ class Program
         Movie movie1 = new Movie("Revenge of the Sith");
         MovieScreening movieScreening1 = new MovieScreening(movie1, DateTime.Now, 10);
         movie1.AddScreening(movieScreening1); Order order = new Order(7, false);
-        order.AddSeatReservation(new MovieTicket(movieScreening1, 1, 1, true)); Console.WriteLine(order.CalculatePrice());
+        order.AddSeatReservation(new MovieTicket(movieScreening1, 1, 1, true)); 
+        Console.WriteLine(order.CalculatePrice());
         order.Export(TicketExportFormat.JSON);
 
         // DirectoryInfo di = new DirectoryInfo("./Deel1/");

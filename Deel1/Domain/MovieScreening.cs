@@ -9,7 +9,7 @@ namespace Deel1.Domain
     public class MovieScreening
     {
         public List<MovieTicket> TicketsOrdered { get; set; }
-        private DateTime DateAndTime { get; set; }
+        public DateTime DateAndTime { get; set; }
         private double PricePerSeat { get; set; }
         private Movie Movie { get; }
         public MovieScreening(Movie Movie, DateTime DateAndTime, double PricePerSeat)

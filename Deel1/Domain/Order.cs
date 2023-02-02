@@ -11,10 +11,8 @@ namespace Deel1.Domain
     {
         private int Id { get; set; }
         private int OrderNr { get; set; }
-        private bool IsStudentOrder;
-        private MovieTicket? MovieTicket;
-
-        private MovieTicket Ticket { get; set; }
+        private bool IsStudentOrder { get; set; }
+        private MovieTicket? Ticket { get; set; }
 
         public Order(int orderNr, bool isStudentOrder)
         {
@@ -24,13 +22,13 @@ namespace Deel1.Domain
         public void AddSeatReservation(MovieTicket ticket)
         {
             this.Ticket = ticket;
-            ticket.MovieScreening.TicketsOrdered.Add(Ticket);
+            this.Ticket.MovieScreening.TicketsOrdered.Add(Ticket);
         }
         public double CalculatePrice()
         {
             double premiumExtra = 0;
 
-            if (Ticket.IsPremiumTicket())
+            if (Ticket!.IsPremiumTicket())
             {
                 if (IsStudentOrder)
                     premiumExtra = 2;
@@ -38,9 +36,7 @@ namespace Deel1.Domain
                     premiumExtra = 3;
             }
 
-            bool weekend = DateTime.Today.DayOfWeek == DayOfWeek.Sunday
-                || DateTime.Today.DayOfWeek == DayOfWeek.Saturday
-                || DateTime.Today.DayOfWeek == DayOfWeek.Friday;
+            bool weekend = this.Ticket.MovieScreening.DateAndTime.DayOfWeek == DayOfWeek.Sunday || this.Ticket.MovieScreening.DateAndTime.DayOfWeek == DayOfWeek.Saturday || this.Ticket.MovieScreening.DateAndTime.DayOfWeek == DayOfWeek.Friday;
 
             if (weekend && IsStudentOrder)
             {
@@ -67,12 +63,11 @@ namespace Deel1.Domain
 
             // Verify the path that you have constructed.
             Console.WriteLine("Path to my file: {0}\n", pathString);
+
             //Get the 
-            string[] exportData =
-            {
-               "Ordernummer: "+ this.OrderNr.ToString(),"Prijs: €"+ CalculatePrice().ToString()
-            };
+            string exportData = "Ordernummer: " + this.OrderNr.ToString() + "Prijs: €" + CalculatePrice().ToString() + "/n";
             byte[] bytes = Encoding.UTF8.GetBytes(exportData);
+
             if (!System.IO.File.Exists(pathString))
             {
                 using (System.IO.FileStream fs = System.IO.File.Create(pathString))
@@ -80,7 +75,7 @@ namespace Deel1.Domain
 
                     for (int i = 0; i < bytes.Length; i++)
                     {
-                        fs.Write(bytes[i]);
+                        fs.WriteByte(bytes[i]);
                     }
                 }
             }
